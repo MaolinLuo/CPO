@@ -1,0 +1,17 @@
+accelerate==1.11.0
+bitsandbytes==0.45.3
+datasets==3.2.0
+matplotlib==3.10.6
+pandas==2.3.3
+peft==0.15.1
+scikit-learn==1.7.2
+scipy==1.15.3
+tensorboardX==2.6.2.2
+transformers==4.57.3
+trl==0.27.0
+ujson==5.11.0
+wandb==0.23.0
+qwen-vl-utils==0.0.14
+math_verify==0.8.0
+git+https://github.com/abukharin-nv/verifiable-instructions.git
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
