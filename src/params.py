@@ -135,6 +135,12 @@ class GRPOTrainingArguments:
     mask_path: Optional[str] = field(default=None, metadata={"help": "Path to importance mask .pt file for CL regularization."})
     mask_lambda: float = field(default=1e2, metadata={"help": "Regularization coefficient for mask loss."})
 
+    # Optional fixed overlong penalty.
+    soft_punish_cache: int = field(
+        default=0,
+        metadata={"help": "Token buffer below max_completion_length. Completions above that threshold receive a fixed -0.1 reward. 0 disables the reward."},
+    )
+
 @dataclass
 class DataArguments:
     data_path: str = field(

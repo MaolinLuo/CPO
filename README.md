@@ -57,7 +57,7 @@ The GPU configurations used in the paper are:
 | Qwen3-VL-4B | 1 | 2 | 8 |
 | Qwen3-VL-8B | 2 | 4 | 8 |
 
-All numbers refer to NVIDIA H100 GPUs. RL methods include GRPO, GSPO, and CPO.
+All numbers refer to NVIDIA H100 GPUs. RL methods include GRPO, CISPO, SAPO, Dr.GRPO, GSPO, and CPO.
 
 ## Data
 
@@ -148,6 +148,12 @@ bash scripts/KeepLoRA-CL/run_all.sh
 bash scripts/GRPO-CL/run_cl.sh
 # Qwen3-VL-2B: GSPO
 bash scripts/GSPO-CL/run_cl.sh
+# Qwen3-VL-2B: CISPO
+bash scripts/CISPO-CL/run_cl.sh
+# Qwen3-VL-2B: SAPO
+bash scripts/SAPO-CL/run_cl.sh
+# Qwen3-VL-2B: Dr. GRPO
+bash scripts/DrGRPO-CL/run_cl.sh
 
 # Qwen3-VL-4B: Full SFT
 bash scripts/SFT-CL-4B/run_all_FFT.sh
@@ -163,6 +169,12 @@ bash scripts/KeepLoRA-CL-4B/run_all.sh
 bash scripts/GRPO-CL-4B/run_cl.sh
 # Qwen3-VL-4B: GSPO
 bash scripts/GSPO-CL-4B/run_cl.sh
+# Qwen3-VL-4B: CISPO
+bash scripts/CISPO-CL-4B/run_cl.sh
+# Qwen3-VL-4B: SAPO
+bash scripts/SAPO-CL-4B/run_cl.sh
+# Qwen3-VL-4B: Dr. GRPO
+bash scripts/DrGRPO-CL-4B/run_cl.sh
 
 # Qwen3-VL-8B: Full SFT
 bash scripts/SFT-CL-8B/run_all_FFT.sh
@@ -178,6 +190,12 @@ bash scripts/KeepLoRA-CL-8B/run_all.sh
 bash scripts/GRPO-CL-8B/run_cl.sh
 # Qwen3-VL-8B: GSPO
 bash scripts/GSPO-CL-8B/run_cl.sh
+# Qwen3-VL-8B: CISPO
+bash scripts/CISPO-CL-8B/run_cl.sh
+# Qwen3-VL-8B: SAPO
+bash scripts/SAPO-CL-8B/run_cl.sh
+# Qwen3-VL-8B: Dr. GRPO
+bash scripts/DrGRPO-CL-8B/run_cl.sh
 ```
 
 </details>

@@ -92,6 +92,9 @@ def train():
     
     model_args, data_args, training_args, grpo_args = parser.parse_args_into_dataclasses()
 
+    if not 0 <= training_args.soft_punish_cache <= grpo_args.max_completion_length:
+        raise ValueError("soft_punish_cache must be between 0 and max_completion_length (in tokens).")
+
     if data_args.nframes is not None and data_args.fps is not None:
         raise ValueError("You cannot set both `nframes` and `fps` at the same time. Please set only one of them.")
 
@@ -245,6 +248,19 @@ def train():
     else:
         print("Using Math Reward Function!")
         reward_funcs = load_reward_funcs("src.train.reward_funcs")
+
+    if training_args.soft_punish_cache > 0:
+        overlong_threshold = grpo_args.max_completion_length - training_args.soft_punish_cache
+
+        # TRL supplies unpadded completion_ids; do not estimate token counts from decoded text.
+        def soft_overlong_punishment_reward(completion_ids, **kwargs):
+            return [-0.1 if len(ids) > overlong_threshold else 0.0 for ids in completion_ids]
+
+        reward_funcs.append(soft_overlong_punishment_reward)
+        rank0_print(
+            f"Using overlong reward: 0 up to {overlong_threshold} tokens "
+            f"and -0.1 above {overlong_threshold} tokens."
+        )
 
 
     trainer_kwargs = dict(
