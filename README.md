@@ -6,6 +6,14 @@
   <a href="https://arxiv.org/abs/2607.04364"><img src="https://img.shields.io/badge/arXiv-2607.04364-B31B1B.svg" alt="arXiv"></a>
 </p>
 
+## Important Notice: Dataset Update (2026-10-12)
+
+We identified and fixed an answer leakage issue caused by inconsistent option spacing in the **MedBookVQA** task of MRCL, as reported in [GitHub Issue #5](https://github.com/MaolinLuo/CPO/issues/5). This issue is specific to MedBookVQA and does not involve the other four task datasets.
+
+The corrected dataset is now available on [Hugging Face](https://huggingface.co/datasets/MaolinLuo/MRCL). **We are currently reassessing the experimental results using the corrected dataset.**
+
+------------------------------------------------------------------------
+
 This repository contains the implementation of **Continual Policy Optimization (CPO)** and the **Multimodal Reasoning Continual Learning (MRCL)** benchmark. MRCL evaluates continual post-training on five recent and diverse tasks. CPO is a replay-free method that constrains movement on parameters identified as important to previous tasks.
 
 Experiments on Qwen3-VL-2B, Qwen3-VL-4B, and Qwen3-VL-8B consistently show that CPO improves final retention over standard RL baselines while maintaining strong task adaptation, demonstrating that the method scales across model sizes.
