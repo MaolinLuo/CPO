@@ -18,7 +18,7 @@ LR=5e-6
 
 CUR_DATASET=${DATASETS[$((TASK_ID - 1))]}
 if [ "$CUR_DATASET" == "MedBookVQA" ] || [ "$CUR_DATASET" == "CVQA" ] || [ "$CUR_DATASET" == "Chemistry" ]; then
-    MAX_STEPS=200
+    MAX_STEPS=300
 elif [ "$CUR_DATASET" == "InstructFollow" ]; then
     MAX_STEPS=100
 fi

@@ -85,6 +85,7 @@ deepspeed src/train/train_grpo.py \
     --logging_steps 1 \
     --tf32 True \
     --gradient_checkpointing True \
+    --torch_empty_cache_steps 1 \
     --report_to tensorboard \
     --lazy_preprocess True \
     --save_strategy "steps" \

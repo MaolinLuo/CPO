@@ -14,7 +14,7 @@ NUM_GENERATIONS=8
 NUM_DEVICES=$(nvidia-smi --list-gpus | wc -l)   # 8
 # per_device_train_batch_size means number of generations per device, and not the number of prompts per device 
 BATCH_PER_DEVICE=4   # https://github.com/huggingface/trl/issues/3061
-MAX_STEPS=600
+MAX_STEPS=400
 LR=5e-6
 
 CUR_DATASET=${DATASETS[$((TASK_ID - 1))]}
@@ -91,6 +91,7 @@ deepspeed src/train/train_grpo.py \
     --logging_steps 1 \
     --tf32 True \
     --gradient_checkpointing True \
+    --torch_empty_cache_steps 1 \
     --report_to tensorboard \
     --lazy_preprocess True \
     --save_strategy "steps" \
