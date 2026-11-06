@@ -4,8 +4,10 @@ set -euo pipefail
 CONDA_PATH=$(conda info --base)
 source "$CONDA_PATH/etc/profile.d/conda.sh"
 
-MAIN_LOG=./checkpoints/Qwen3-VL-4B/GSPO-CL/training.log
-mkdir -p ./checkpoints/Qwen3-VL-4B/GSPO-CL
+export CL_METHOD=CPO-CL
+
+MAIN_LOG=./checkpoints/Qwen3-VL-4B/CPO-CL/training.log
+mkdir -p ./checkpoints/Qwen3-VL-4B/CPO-CL
 exec > >(tee "$MAIN_LOG") 2>&1
 
 echo "======================================"

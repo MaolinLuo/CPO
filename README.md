@@ -1,16 +1,21 @@
 # RL Forgets! Towards Continual Policy Optimization
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2607.04364"><img src="https://img.shields.io/badge/arXiv-2607.04364-B31B1B.svg" alt="arXiv"></a>
+  &nbsp;&nbsp;
   <a href="https://huggingface.co/datasets/MaolinLuo/MRCL"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-MRCL%20Dataset-FFD21E.svg" alt="Hugging Face Dataset"></a>
   &nbsp;&nbsp;
-  <a href="https://arxiv.org/abs/2607.04364"><img src="https://img.shields.io/badge/arXiv-2607.04364-B31B1B.svg" alt="arXiv"></a>
+  <a href="https://huggingface.co/api/datasets/MaolinLuo/MRCL?expand=downloadsAllTime"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fhuggingface.co%2Fapi%2Fdatasets%2FMaolinLuo%2FMRCL%3Fexpand%3DdownloadsAllTime&amp;query=%24.downloadsAllTime&amp;label=Total%20Downloads&amp;color=FFD21E" alt="Hugging Face Total Downloads"></a>
 </p>
 
-## Important Notice: Dataset Update (2026-10-12)
 
-We identified and fixed an answer leakage issue caused by inconsistent option spacing in the **MedBookVQA** task of MRCL, as reported in [GitHub Issue #5](https://github.com/MaolinLuo/CPO/issues/5). This issue is specific to MedBookVQA and does not involve the other four task datasets.
+## Update (2026-11-05): Revised Paper and Results
 
-The corrected dataset is now available on [Hugging Face](https://huggingface.co/datasets/MaolinLuo/MRCL). **We are currently reassessing the experimental results using the corrected dataset.**
+We have completed the re-evaluation using the corrected MRCL dataset. The revised paper is now available as [arXiv v4](https://arxiv.org/abs/2607.04364v4), with updated experimental results and analyses.
+
+## Update (2026-10-12): Corrected Dataset
+
+We identified and fixed an answer leakage issue caused by inconsistent option spacing in the **MedBookVQA** task of MRCL, as reported in [GitHub Issue #5](https://github.com/MaolinLuo/CPO/issues/5). This issue is specific to MedBookVQA and does not involve the other four task datasets. The corrected dataset is now available on [Hugging Face](https://huggingface.co/datasets/MaolinLuo/MRCL). 
 
 ------------------------------------------------------------------------
 

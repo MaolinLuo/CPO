@@ -6,6 +6,7 @@ BASE_PATH=$2
 TASK_ID=$3
 shift 3
 DATASETS=("$@")
+CL_METHOD=${CL_METHOD:-GSPO-CL}
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export PYTHONPATH=src:${PYTHONPATH:-}
@@ -29,12 +30,12 @@ if [ $TASK_ID -eq 1 ]; then
     MODEL_NAME=$BASE_MODEL
 else
     PREV_DATASET=${DATASETS[$((TASK_ID - 2))]}
-    MODEL_NAME=./checkpoints/Qwen3-VL-2B/GSPO-CL/training/${PREV_DATASET}
+    MODEL_NAME=./checkpoints/Qwen3-VL-2B/${CL_METHOD}/training/${PREV_DATASET}
 fi
 
 MASK_ARGS=""
-if [ $TASK_ID -gt 1 ]; then
-    MASK_PATH=./checkpoints/Qwen3-VL-2B/GSPO-CL/masks/task_$((TASK_ID - 1)).pt
+if [ "$CL_METHOD" == "CPO-CL" ] && [ $TASK_ID -gt 1 ]; then
+    MASK_PATH=./checkpoints/Qwen3-VL-2B/CPO-CL/masks/task_$((TASK_ID - 1)).pt
     if [ -f "$MASK_PATH" ]; then
         MASK_ARGS="--mask_path $MASK_PATH"
     fi
@@ -51,8 +52,8 @@ echo "======================================"
 
 DATA_PATH=${BASE_PATH}/${CUR_DATASET}/jsons/train/data.json
 MEDIA_DIR=${BASE_PATH}/${CUR_DATASET}/images
-OUTPUT_DIR=./checkpoints/Qwen3-VL-2B/GSPO-CL/training/${CUR_DATASET}
-MERGE_SAVE_PATH=./checkpoints/Qwen3-VL-2B/GSPO-CL/model/${CUR_DATASET}
+OUTPUT_DIR=./checkpoints/Qwen3-VL-2B/${CL_METHOD}/training/${CUR_DATASET}
+MERGE_SAVE_PATH=./checkpoints/Qwen3-VL-2B/${CL_METHOD}/model/${CUR_DATASET}
 
 mkdir -p ${OUTPUT_DIR}
     

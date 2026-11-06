@@ -14,7 +14,7 @@ NUM_GENERATIONS=8
 NUM_DEVICES=$(nvidia-smi --list-gpus | wc -l)   # 8
 # per_device_train_batch_size means number of generations per device, and not the number of prompts per device 
 BATCH_PER_DEVICE=4   # https://github.com/huggingface/trl/issues/3061
-MAX_STEPS=600
+MAX_STEPS=400
 LR=5e-6
 
 CUR_DATASET=${DATASETS[$((TASK_ID - 1))]}

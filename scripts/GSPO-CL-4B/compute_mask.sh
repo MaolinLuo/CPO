@@ -17,6 +17,6 @@ python src/compute_importance_mask.py \
     --task_id "$TASK_ID" \
     --datasets "${DATASETS[@]}" \
     --top_percent 2.5 \
-    --checkpoint_dir ./checkpoints/Qwen3-VL-4B/GSPO-CL
+    --checkpoint_dir ./checkpoints/Qwen3-VL-4B/CPO-CL
 
 echo "Mask computation done."
